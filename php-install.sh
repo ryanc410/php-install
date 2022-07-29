@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-########################################################
-# NAME                            : php-install.sh
-# AUTHOR                        : Ryan C.
-# DESCRIPTION                : Install a Version of PHP and set as the default version.
+####################################################################################
+# NAME               : php-install.sh
+# AUTHOR             : Ryan C.
+# DESCRIPTION        : Install a Version of PHP and set as the default version.
 # VERSIONS SUPPORTED : 7.2, 7.4, 8.0, 8.1
-# COMPATABILITY            : Ubuntu Server 20.04 Focal
-########################################################
+# COMPATABILITY      : Ubuntu Server 20.04 Focal
+####################################################################################
 reqs=( software-properties-common gnupg2 )
 base_mods=(fpm mysql cli common)
 current=$(php -v | grep ^PHP | cut -d' ' -f2)
