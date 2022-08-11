@@ -25,10 +25,8 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
-cat /etc/lsb-release | grep focal &>/dev/null
-if [[ $? -ne 0 ]]; then
-    header
-    echo -e "\e[1;31mThis script is compatible with Ubuntu Server 20.04 only!\e[0m"
+if [[ $OSTYPE != linux-gnu ]]; then
+    echo -e "\e[0;31mScript not Compatible with your Operating System!\e[0m"
     sleep 3
     exit 1
 fi
