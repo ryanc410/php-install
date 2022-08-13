@@ -34,15 +34,13 @@ fi
 header
 echo -e "Checking current PHP version.."
 sleep 3
-php -v | grep ^PHP | cut -d' ' -f2 &>/dev/null
-
+php -v
 if [[ $? -eq 0 ]]; then
-    echo -e "\e[1;32mFound PHP version ${current}..\e[0m"
-    sleep 3
+    echo -e "\e[0;32mFound PHP Version ${current}..\e[0m"
     switch=true
 else
-echo -e "PHP not found.."
-sleep 3
+    echo -e "\e[0;31mPHP not found!\e[0m"
+    sleep 3
     switch=false
 fi
 
@@ -82,7 +80,7 @@ else
     apt install gnupg2 -y &>/dev/null
 fi
 
-if [[ ! -f /etc/apt/sources.list.d/ondrej-ubuntu-php-focal.list ]]; then
+if [[ ! -f /etc/apt/sources.list.d/ondrej-ubuntu-php-*.list ]]; then
     echo -e "Configuring PHP PPA..\n"
     add-apt-repository ppa:ondrej/php -y &>/dev/null
     apt update &>/dev/null
