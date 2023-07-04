@@ -34,7 +34,7 @@ fi
 header
 echo -e "Checking current PHP version.."
 sleep 3
-php -v
+php -v &>/dev/null
 if [[ $? -eq 0 ]]; then
     echo -e "\e[0;32mFound PHP Version ${current}..\e[0m"
     switch=true
